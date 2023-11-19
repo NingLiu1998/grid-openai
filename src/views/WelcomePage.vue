@@ -1,5 +1,5 @@
 <template>
-    <PageContainer>
+    <div>
       <a-result
         status="404"
         :style="{
@@ -13,7 +13,7 @@
           <a-button type="primary" @click="handleClick">Back Home</a-button>
         </template>
       </a-result>
-    </PageContainer>
+    </div>
   </template>
   
   <script lang="ts" setup>

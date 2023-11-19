@@ -2,12 +2,8 @@
   <a-layout>
     <a-layout-header class="header">
       <div class="logo" />
-      <a-menu
-        v-model:selectedKeys="selectedKeys1"
-        theme="dark"
-        mode="horizontal"
-        :style="{ lineHeight: '64px' }"
-      >
+      <a-menu :selectedKeys="[$route.path]" :open-keys="openKeys" theme="dark" mode="horizontal"
+        :style="{ lineHeight: '64px' }">
         <a-menu-item key="1">nav 1</a-menu-item>
         <a-menu-item key="2">nav 2</a-menu-item>
         <a-menu-item key="3">nav 3</a-menu-item>
@@ -21,26 +17,25 @@
       </a-breadcrumb>
       <a-layout style="padding: 24px 0; background: #fff">
         <a-layout-sider width="200" style="background: #fff">
-          <a-menu
-            v-model:selectedKeys="selectedKeys2"
-            v-model:openKeys="openKeys"
-            mode="inline"
-            style="height: 100%"
-          >
-            <a-sub-menu key="sub1">
+          <!--  v-model:selectedKeys="selectedKeys2" -->
+          <a-menu :selectedKeys="[$route.path]" v-model:openKeys="openKeys" mode="inline" style="height: 100%">
+
+            <a-sub-menu key="sub1" :selectedKeys="[$route.path]">
               <template #title>
                 <span>
                   <user-outlined />
                   subnav 1
                 </span>
               </template>
-              <a-menu-item key="1">
+              <a-menu-item key="/admins/test-image">
+                <router-link to="/admins/test-image">图片上传测试</router-link>
+              </a-menu-item>
+              <a-menu-item key="/admins/test-chat">
                 <router-link to="/admins/test-chat">会话测试</router-link>
               </a-menu-item>
-              <a-menu-item key="2">
+              <a-menu-item key="/admins/cus-index">
                 <router-link to="/admins/cus-index">客户管理</router-link>
               </a-menu-item>
-              <a-menu-item key="3">option3</a-menu-item>
               <a-menu-item key="4">option4</a-menu-item>
             </a-sub-menu>
             <a-sub-menu key="sub2">
@@ -70,7 +65,6 @@
           </a-menu>
         </a-layout-sider>
         <a-layout-content :style="{ padding: '0 24px', minHeight: '280px' }">
-          Content
           <router-view />
         </a-layout-content>
       </a-layout>
@@ -83,7 +77,6 @@
 <script lang="ts" setup>
 import { ref } from 'vue';
 import { UserOutlined, LaptopOutlined, NotificationOutlined } from '@ant-design/icons-vue';
-const selectedKeys1 = ref<string[]>(['2']);
 const selectedKeys2 = ref<string[]>(['1']);
 const openKeys = ref<string[]>(['sub1']);
 </script>

@@ -12,7 +12,7 @@ const router = createRouter({
       name: 'home',
       component: BasicLayout,
       redirect: '/welcome',
-      children:[
+      children: [
         {
           path: '/welcome',
           name: 'welcome',
@@ -25,7 +25,7 @@ const router = createRouter({
           meta: { title: '管理页', icon: 'icon-tuijian', flat: true },
           component: BlankLayout,
           redirect: () => ({ name: 'page1' }),
-          children:[
+          children: [
             {
               path: 'page-1',
               name: 'page1',
@@ -39,10 +39,16 @@ const router = createRouter({
               component: () => import('../views/admins/Page1.vue'),
             },
             {
+              path: 'test-image',
+              name: 'testimage',
+              meta: { title: '图片测试' },
+              component: () => import('../views/admins/test/TestImage.vue'),
+            },
+            {
               path: 'test-chat',
               name: 'testchat',
               meta: { title: '会话测试' },
-              component: () => import('../views/admins/Testchat.vue'),
+              component: () => import('../views/admins/test/TestChat.vue'),
             },
             {
               path: 'cus-index',
