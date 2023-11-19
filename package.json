@@ -11,12 +11,10 @@
   },
   "dependencies": {
     "@ant-design-vue/pro-layout": "^3.2.5",
-    "@highlightjs/vue-plugin": "^2.1.0",
     "@types/markdown-it": "*",
     "ant-design-vue": "4.0.7",
     "axios": "^1.6.2",
     "dayjs": "^1.11.10",
-    "highlight.js": "^11.9.0",
     "qs": "^6.11.2",
     "unplugin-vue-components": "^0.25.2",
     "vue": "^3.3.4",
