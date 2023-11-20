@@ -29,15 +29,9 @@ const router = createRouter({
             {
               path: 'page-1',
               name: 'page1',
-              meta: { title: '一级页面' },
+              meta: { title: 'OpenAI后台管理' },
               component: () => import('../views/admins/Index.vue'),
-            },
-            {
-              path: 'page-2',
-              name: 'page2',
-              meta: { title: '页面2' },
-              component: () => import('../views/admins/Page1.vue'),
-            },
+            },           
             {
               path: 'test-image',
               name: 'testimage',
@@ -59,6 +53,12 @@ const router = createRouter({
           ]
         }
       ]
+    },
+    {
+      path: '/adminlogin',
+      name: 'login',
+      meta: { title: '后台登录' },
+      component: () => import('../views/admins/Login.vue'),
     },
     {
       path: '/about',
