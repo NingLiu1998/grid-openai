@@ -1,5 +1,5 @@
 <template>
-  <a-layout>
+  <a-layout class="container">
     <a-layout-header class="header">
       <div class="logo" />
       <a-menu :selectedKeys="[$route.path]" :open-keys="openKeys" theme="dark" mode="horizontal"
@@ -9,7 +9,7 @@
         <a-menu-item key="3">nav 3</a-menu-item>
       </a-menu>
     </a-layout-header>
-    <a-layout-content style="padding: 0 50px">
+    <a-layout-content style="padding: 0 50px; display: flex; flex-direction: column;">
       <a-breadcrumb style="margin: 16px 0">
         <a-breadcrumb-item>Home</a-breadcrumb-item>
         <a-breadcrumb-item>List</a-breadcrumb-item>
@@ -81,6 +81,9 @@ const selectedKeys2 = ref<string[]>(['1']);
 const openKeys = ref<string[]>(['sub1']);
 </script>
 <style scoped>
+.container {
+  height: 100%;
+}
 #components-layout-demo-top-side .logo {
   float: left;
   width: 120px;

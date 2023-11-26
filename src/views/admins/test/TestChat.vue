@@ -1,39 +1,44 @@
 <template>
-    <a-list v-if="comments.length" :data-source="comments"
-        :header="`${comments.length} ${comments.length > 1 ? 'replies' : 'reply'}`" item-layout="horizontal">
-        <template #renderItem="{ item }">
-            <a-list-item>
-                <a-comment :author="item.author" :avatar="item.avatar" :datetime="item.datetime">
+    <div class="chat-view full-container flex flex-column">
+        <div class="message-list flex-1 scroll">
+            <a-list v-if="comments.length" :data-source="comments"
+                :header="`${comments.length} ${comments.length > 1 ? 'replies' : 'reply'}`" item-layout="horizontal">
+                <template #renderItem="{ item }">
+                    <a-list-item>
+                        <a-comment :author="item.author" :avatar="item.avatar" :datetime="item.datetime">
 
-                    <template #content>
-                        <a-form-item>
-                            <MarkdownIt :options="markdownOptions" :source="item.content" />
-                        </a-form-item>
-                        <a-spin />
-                    </template>
+                            <template #content>
+                                <a-form-item>
+                                    <MarkdownIt :options="markdownOptions" :source="item.content" />
+                                </a-form-item>
+                                <a-spin />
+                            </template>
 
-                </a-comment>
-            </a-list-item>
-        </template>
-    </a-list>
-    <a-comment>
-        <template #avatar>
-            <a-avatar src="https://cdn.jsdelivr.net/gh/wuxin0011/web-cdn-resource@main/image/logo.png" alt="Han Solo" />
-        </template>
-        <template #content>
+                        </a-comment>
+                    </a-list-item>
+                </template>
+            </a-list>
+        </div>
 
-            <div class="input">
-                <a-form-item>
-                    <a-textarea v-model:value="value" :rows="4" />
-                </a-form-item>
-                <a-form-item>
-                    <a-button html-type="submit" :loading="submitting" type="primary" @click="handleSubmit">
-                        发送
-                    </a-button>
-                </a-form-item>
-            </div>
-        </template>
-    </a-comment>
+        <a-comment>
+            <template #avatar>
+                <a-avatar src="https://cdn.jsdelivr.net/gh/wuxin0011/web-cdn-resource@main/image/logo.png" alt="Han Solo" />
+            </template>
+            <template #content>
+
+                <div class="input">
+                    <a-form-item>
+                        <a-textarea v-model:value="value" :rows="4" />
+                    </a-form-item>
+                    <a-form-item>
+                        <a-button html-type="submit" :loading="submitting" type="primary" @click="handleSubmit">
+                            发送
+                        </a-button>
+                    </a-form-item>
+                </div>
+            </template>
+        </a-comment>
+    </div>
 </template>
 <script lang="ts" setup>
 import { ref } from 'vue';

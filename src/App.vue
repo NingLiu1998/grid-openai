@@ -34,6 +34,7 @@ import { ConfigProvider } from 'ant-design-vue';
 <style>
 #app {
   height: 100%;
+  overflow: auto;
 }
 
 .ant-pro-sider {

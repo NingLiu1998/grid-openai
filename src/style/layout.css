@@ -1,0 +1,27 @@
+.full-container {
+  height: 100%;
+  overflow: hidden;
+  overflow-y: auto;
+}
+
+.h-full {
+  height: 100%;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.flex-1 {
+  flex: 1;
+  min-width: 0;
+  min-height: 0;
+}
+
+.scroll {
+  overflow: auto;
+}
