@@ -8,10 +8,8 @@
                         <a-comment :author="item.author" :avatar="item.avatar" :datetime="item.datetime">
 
                             <template #content>
-                                <a-form-item>
-                                    <MarkdownIt :options="markdownOptions" :source="item.content" />
-                                </a-form-item>
-                                <a-spin />
+                                <MarkdownIt v-if="item.content" :options="markdownOptions" :source="item.content" />  
+                                <a-spin v-else/>                 
                             </template>
 
                         </a-comment>
@@ -73,7 +71,7 @@ const handleSubmit = () => {
     let blockTex = {
         author: 'Me',
         avatar: 'https://cdn.jsdelivr.net/gh/wuxin0011/web-cdn-resource@main/image/logo.png',
-        content: value.value,
+        content: "",
         datetime: dayjs(`${new Date()}`).format('YYYY年MM月DD日'),
         isloding: "1"
     };
@@ -85,7 +83,7 @@ const handleSubmit = () => {
     for (let index = 0; index < 10; index++) {
         setTimeout(() => {
             comments.value[blockTexIndex].content = comments.value[blockTexIndex].content.concat(index.toString());
-        }, 800 * (index + 1));
+        }, 2000 * (index + 1));
     }
 
     value.value = ''
